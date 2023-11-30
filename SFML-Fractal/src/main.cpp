@@ -3,11 +3,17 @@
 
 int main()
 {
-	sf::RenderWindow win(sf::VideoMode(1280, 720), "Fractal", sf::Style::Default);
+	sf::RenderWindow win(sf::VideoMode(1920, 1080), "Fractal", sf::Style::Fullscreen);
 	win.setVerticalSyncEnabled(true);
 
 	sf::Event ev;
 	sf::Clock clock;
+	sf::Font f; 
+	f.loadFromFile("res/font/PixeloidMono-d94EV.ttf");
+	sf::Text t;
+	t.setFont(f);
+	t.setCharacterSize(15);
+	t.setString("FPS: ");
 
 	FractalManager m_Manager;
 	m_Manager.Init(win.getSize());
@@ -25,9 +31,16 @@ int main()
 
 		float dt = clock.restart().asSeconds();
 
+		int fps = 1.f / dt;
+		std::string s = "FPS: " + std::to_string(fps);
+		t.setString(s);
+		t.setPosition(win.getSize().x - t.getGlobalBounds().width - 4.f, 4.f);
+
 		win.clear();
 
 		m_Manager.UpdateAndRender(dt, win);
+
+		win.draw(t);
 
 		win.display();
 	}

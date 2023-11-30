@@ -31,7 +31,23 @@ void Mandelbrot::Init(sf::Vector2u windowSize)
 void Mandelbrot::UpdateAndRender(float dt, sf::RenderTarget& target)
 {
 	std::string info = "Info:\n";
-	info += "Scale = " + std::to_string(m_Scale) + "\n";
+	info += "Scale = " + std::to_string(m_Scale) + "\n\n";
+
+	float ratio = m_WindowSize.x / (float)m_WindowSize.y;
+	float imgStart = (-1.f / m_Scale);
+	float imgEnd = (1.f / m_Scale);
+	float realStart = (imgStart * ratio);
+	float realEnd = (imgEnd * ratio);
+
+	imgStart += m_CameraPos.y;
+	imgEnd += m_CameraPos.y;
+	realStart += m_CameraPos.x;
+	realEnd += m_CameraPos.x;
+
+	info += "Complex Range:\nReal = [" + std::to_string(realStart) 
+		+ ", " + std::to_string(realEnd) + "]\n" +
+		"Img = [" + std::to_string(imgStart)
+		+ ", " + std::to_string(imgEnd) + "]";
 	
 	m_DebugInfo.setString(info);
 

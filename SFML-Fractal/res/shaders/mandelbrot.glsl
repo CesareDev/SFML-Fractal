@@ -54,15 +54,20 @@ uniform float u_Scale;
 void main()
 {
 	float ratio = u_WinSize.x / u_WinSize.y;
-	float imgStart = -1.f / u_Scale;
-	float imgEnd = 1.f / u_Scale;
-	float realStart = imgStart * ratio;
-	float realEnd = imgEnd * ratio;
+	float imgStart = (-1.f / u_Scale);
+	float imgEnd = (1.f / u_Scale);
+	float realStart = (imgStart * ratio);
+	float realEnd = (imgEnd * ratio);
+
+	imgStart += u_CameraPosition.y;
+	imgEnd += u_CameraPosition.y;
+	realStart += u_CameraPosition.x;
+	realEnd += u_CameraPosition.x;
 
 	Complex c = Complex
 	(
-		realStart + (gl_FragCoord.x / u_WinSize.x) * (realEnd - realStart) + u_CameraPosition.x,
-		imgStart + (gl_FragCoord.y / u_WinSize.y) * (imgEnd - imgStart) + u_CameraPosition.y
+		realStart + (gl_FragCoord.x / u_WinSize.x) * (realEnd - realStart),
+		imgStart + (gl_FragCoord.y / u_WinSize.y) * (imgEnd - imgStart)
 	);
 
 	Complex z;

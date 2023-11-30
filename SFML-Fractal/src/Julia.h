@@ -11,5 +11,9 @@ public:
 	void Init(sf::Vector2u windowSize) override;
 	void UpdateAndRender(float dt, sf::RenderTarget& target) override;
 	void ResetVariables() override;
+
+private:
+
+	sf::Vector2f m_MousePos;
 };
 
