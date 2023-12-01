@@ -1,8 +1,10 @@
 #include "FractalManager.h"
 #include <SFML/Window/Keyboard.hpp>
 
-#include "Mandelbrot.h"
-#include "Julia.h"
+#include "Fractals/Mandelbrot.h"
+#include "Fractals/Julia.h"
+#include "Fractals/Nova.h"
+#include "Fractals/BurningShip.h"
 
 FractalManager::FractalManager()
 {
@@ -53,6 +55,11 @@ void FractalManager::ChangeFractal()
 		case FractalType::JuliaSet:
 			m_CurrentFractal.reset(new Julia());
 			break;
+		case FractalType::Nova:
+			m_CurrentFractal.reset(new Nova());
+			break;
+		case FractalType::BurningShip:
+			m_CurrentFractal.reset(new BurningShip());
 		case FractalType::Count:
 			break;
 		default:

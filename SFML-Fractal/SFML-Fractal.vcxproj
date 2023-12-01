@@ -141,17 +141,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\Fractal.cpp" />
+    <ClCompile Include="src\Fractals\BurningShip.cpp" />
+    <ClCompile Include="src\Fractals\Nova.cpp" />
+    <ClCompile Include="src\Fractals\Fractal.cpp" />
     <ClCompile Include="src\FractalManager.cpp" />
-    <ClCompile Include="src\Julia.cpp" />
-    <ClCompile Include="src\Mandelbrot.cpp" />
+    <ClCompile Include="src\Fractals\Julia.cpp" />
+    <ClCompile Include="src\Fractals\Mandelbrot.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Fractal.h" />
+    <ClInclude Include="src\Fractals\BurningShip.h" />
+    <ClInclude Include="src\Fractals\Nova.h" />
+    <ClInclude Include="src\Fractals\Fractal.h" />
     <ClInclude Include="src\FractalManager.h" />
-    <ClInclude Include="src\Julia.h" />
-    <ClInclude Include="src\Mandelbrot.h" />
+    <ClInclude Include="src\Fractals\Julia.h" />
+    <ClInclude Include="src\Fractals\Mandelbrot.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="res\font\info.txt" />
@@ -163,8 +167,10 @@
     <Font Include="res\font\PixeloidSansBold-PKnYd.ttf" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="res\shaders\burningship.glsl" />
     <None Include="res\shaders\julia.glsl" />
     <None Include="res\shaders\mandelbrot.glsl" />
+    <None Include="res\shaders\nova.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

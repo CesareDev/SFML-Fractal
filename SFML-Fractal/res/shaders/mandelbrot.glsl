@@ -1,6 +1,6 @@
-#version 330 core
+#version 440 core
 
-#define MAX_STEPS 200
+#define MAX_STEPS 100
 
 struct Complex 
 {
@@ -22,30 +22,15 @@ Complex mul(Complex a, Complex b)
 	);
 }
 
+float abs(Complex a)
+{
+	return sqrt(a.r * a.r + a.i * a.i);
+}
+
 float abs2(Complex a)
 {
 	return a.r * a.r + a.i * a.i;
 }
-
-vec3 palette[16] = 
-{
-	vec3(66, 30, 15),
-	vec3(25, 7, 26),
-	vec3(9, 1, 47),
-	vec3(4, 4, 73),
-	vec3(0, 7, 100),
-	vec3(12, 44, 138),
-	vec3(24, 82, 177),
-	vec3(57, 125, 209),
-	vec3(134, 181, 229),
-	vec3(211, 236, 248),
-	vec3(241, 233, 191),
-	vec3(248, 201, 95),
-	vec3(255, 170, 0),
-	vec3(204, 128, 0),
-	vec3(153, 87, 0),
-	vec3(106, 52, 3)
-};
 
 uniform vec2 u_WinSize;
 uniform vec2 u_CameraPosition;
@@ -82,9 +67,10 @@ void main()
 
 	if (n < MAX_STEPS)
 	{
-		int index = n % palette.length();
-		color = palette[index];
-		color /= 255.f;
+		float cindex = float(n) + 1.f - log2(log2(abs2(z)) / 2.f);
+		color.x = sin(0.016f * cindex) * 0.5f + 0.5f;
+		color.y = sin(0.013f * cindex) * 0.5f + 0.5f;
+		color.z = sin(0.01f * cindex) * 0.5f + 0.5f;
 	}
 
 	gl_FragColor = vec4(color, 1.0);

@@ -3,12 +3,14 @@
 #include <SFML/Graphics/Text.hpp>
 #include <memory>
 
-#include "Fractal.h"
+#include "Fractals/Fractal.h"
 
 enum class FractalType
 {
 	MandelbrotSet,
 	JuliaSet,
+	Nova,
+	BurningShip,
 	Count
 };
 

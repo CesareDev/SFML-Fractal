@@ -13,7 +13,6 @@ public:
 
 	virtual void Init(sf::Vector2u windowSize) = 0;
 	virtual void UpdateAndRender(float dt, sf::RenderTarget& target) = 0;
-	virtual void ResetVariables() = 0;
 
 	void HandleZoom(float dt);
 	void HandleCamera(float dt);

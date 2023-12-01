@@ -38,7 +38,7 @@ void Julia::UpdateAndRender(float dt, sf::RenderTarget& target)
 		m_FractalShader.setUniform("u_MousePosition", m_MousePos);
 	}
 
-	std::string info = "Info:\n";
+	std::string info = "Julia\nInfo:\n";
 	info += "Scale = " + std::to_string(m_Scale) + "\n\n";
 
 	float ratio = m_WindowSize.x / (float)m_WindowSize.y;
@@ -82,14 +82,4 @@ void Julia::UpdateAndRender(float dt, sf::RenderTarget& target)
 
 	target.draw(m_Rect, m_States);
 	target.draw(m_DebugInfo);
-}
-
-void Julia::ResetVariables()
-{
-	m_CameraPos = { 0.f, 0.f };
-	m_Scale = 1.f;
-
-	m_FractalShader.setUniform("u_WinSize", sf::Glsl::Vec2(m_WindowSize));
-	m_FractalShader.setUniform("u_Scale", m_Scale);
-	m_FractalShader.setUniform("u_CameraPosition", sf::Glsl::Vec2(m_CameraPos));
 }

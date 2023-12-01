@@ -18,30 +18,42 @@
     <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Mandelbrot.cpp">
+    <ClCompile Include="src\Fractals\Mandelbrot.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Julia.cpp">
+    <ClCompile Include="src\Fractals\Julia.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\FractalManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Fractal.cpp">
+    <ClCompile Include="src\Fractals\Fractal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Fractals\Nova.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Fractals\BurningShip.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Mandelbrot.h">
+    <ClInclude Include="src\Fractals\Mandelbrot.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Julia.h">
+    <ClInclude Include="src\Fractals\Julia.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\FractalManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Fractal.h">
+    <ClInclude Include="src\Fractals\Fractal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Fractals\Nova.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Fractals\BurningShip.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -57,5 +69,7 @@
   <ItemGroup>
     <None Include="res\shaders\mandelbrot.glsl" />
     <None Include="res\shaders\julia.glsl" />
+    <None Include="res\shaders\nova.glsl" />
+    <None Include="res\shaders\burningship.glsl" />
   </ItemGroup>
 </Project>

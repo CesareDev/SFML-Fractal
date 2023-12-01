@@ -13,12 +13,12 @@ void Fractal::HandleZoom(float dt)
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 	{
-		m_Scale += 10.f * dt;
+		m_Scale *= 1.1f;
 		m_FractalShader.setUniform("u_Scale", m_Scale);
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 	{
-		m_Scale -= 10.f * dt;
+		m_Scale /= 1.1f;
 		m_FractalShader.setUniform("u_Scale", m_Scale);
 	}
 }

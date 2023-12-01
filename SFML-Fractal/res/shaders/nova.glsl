@@ -13,12 +13,32 @@ Complex add(Complex a, Complex b)
 	return Complex(a.r + b.r, a.i + b.i);
 }
 
+Complex sub(Complex a, Complex b)
+{
+	return Complex(a.r - b.r, a.i - b.i);
+}
+
+Complex mul(Complex a, float k)
+{
+	return Complex(a.r * k, a.i * k);
+}
+
 Complex mul(Complex a, Complex b)
 {
 	return Complex
 	(
 		a.r * b.r - a.i * b.i,
 		a.r * b.i + a.i * b.r
+	);
+}
+
+Complex div(Complex a, Complex b)
+{
+	float den = (b.r * b.r + b.i * b.i);
+	return Complex
+	(
+		(a.r * b.r + a.i * b.i) / den,
+		(a.i * b.r - a.r * b.i) / den
 	);
 }
 
@@ -30,24 +50,10 @@ float abs2(Complex a)
 uniform vec2 u_WinSize;
 uniform vec2 u_CameraPosition;
 uniform float u_Scale;
-uniform vec2 u_MousePosition;
 
 void main()
 {
 	float ratio = u_WinSize.x / u_WinSize.y;
-
-	float imgStartParam = -1.f;
-	float imgEndParam = 1.f;
-	float realStartParam = imgStartParam * ratio;
-	float realEndParam = imgEndParam * ratio;
-	vec2 mpos = vec2(u_MousePosition.x, u_WinSize.y - u_MousePosition.y);
-
-	Complex c = Complex
-	(
-		realStartParam + (mpos.x / u_WinSize.x) * (realEndParam - realStartParam),
-		imgStartParam + (mpos.y / u_WinSize.y) * (imgEndParam - imgStartParam)
-	);
-
 	float imgStart = (-1.f / u_Scale);
 	float imgEnd = (1.f / u_Scale);
 	float realStart = (imgStart * ratio);
@@ -58,16 +64,22 @@ void main()
 	realStart += u_CameraPosition.x;
 	realEnd += u_CameraPosition.x;
 
-	Complex z = Complex
+	Complex c = Complex
 	(
 		realStart + (gl_FragCoord.x / u_WinSize.x) * (realEnd - realStart),
 		imgStart + (gl_FragCoord.y / u_WinSize.y) * (imgEnd - imgStart)
 	);
 
+	Complex i = Complex(1.f, 0.f);
+	Complex z = c;
+	float k = 2.f / 3.f;
+
 	int n;
 	while (abs2(z) <= 4.f && n < MAX_STEPS)
 	{
-		z = add(mul(z, z), c);
+		Complex z3 = mul(mul(mul(z, z), z), k);
+		Complex s = add(z, i);
+		z = add(add(div(sub(sub(z3, mul(z, 2.f)), i), mul(s, s)), c), i);
 		n++;
 	}
 

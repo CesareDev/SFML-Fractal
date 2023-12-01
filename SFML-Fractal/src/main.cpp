@@ -3,14 +3,16 @@
 
 int main()
 {
-	sf::RenderWindow win(sf::VideoMode(1920, 1080), "Fractal", sf::Style::Fullscreen);
+	sf::RenderWindow win(sf::VideoMode(1280, 720), "Fractal", sf::Style::Default);
 	win.setVerticalSyncEnabled(true);
 
 	sf::Event ev;
 	sf::Clock clock;
+
+	sf::Text t;
 	sf::Font f; 
 	f.loadFromFile("res/font/PixeloidMono-d94EV.ttf");
-	sf::Text t;
+	
 	t.setFont(f);
 	t.setCharacterSize(15);
 	t.setString("FPS: ");

@@ -1,15 +1,15 @@
 #pragma once
 #include "Fractal.h"
 
-class Mandelbrot : public Fractal
+class BurningShip : public Fractal
 {
 public:
 
-	Mandelbrot();
-	~Mandelbrot();
+	BurningShip();
+	~BurningShip();
 
+	// Inherited via Fractal
 	void Init(sf::Vector2u windowSize) override;
 	void UpdateAndRender(float dt, sf::RenderTarget& target) override;
-	void ResetVariables() override;
 };
 
