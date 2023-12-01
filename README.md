@@ -29,4 +29,3 @@ Command to use the application:
 ## TO-DO
 - [ ] Build system for other platforms
 - [ ] Enhance the fractal colors
-- [ ] Add more fractal
