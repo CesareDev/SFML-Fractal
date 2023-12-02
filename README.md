@@ -48,5 +48,3 @@ Formula used for coloring the fractal: `sin(freq * index + phase)` taken by [thi
 ## Credits
 
 - [SFML](https://github.com/SFML/SFML)
-- [imgui](https://github.com/ocornut/imgui)
-- [imgui-sfml](https://github.com/SFML/imgui-sfml)
