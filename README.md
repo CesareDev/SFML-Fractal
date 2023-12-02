@@ -6,10 +6,12 @@ C++ application for rendering multiple fractal set using the [*SFML*](https://ww
 
 In this application there are two types of fractal:
 
-* [Mandelbrot set](https://en.wikipedia.org/wiki/Mandelbrot_set)
-* [Julia set](https://en.wikipedia.org/wiki/Julia_set)
+* [Mandelbrot](https://en.wikipedia.org/wiki/Mandelbrot_set)
+* [Julia](https://en.wikipedia.org/wiki/Julia_set)
+* [Newton (Nova)](https://en.wikipedia.org/wiki/Newton_fractal)
+* [Burning Ship](https://it.wikipedia.org/wiki/Burning_ship)
 
-The implementatin uses two fragment shaders, one for each set, to optmize the calculus.
+The implementatin uses fragment shaders, one for each set.
 
 ## Build
 
