@@ -1,6 +1,6 @@
 # SFML-Fractal
 
-C++ application for rendering multiple fractal set using the [*SFML*](https://www.sfml-dev.org/index.php) libraries
+C++ application for rendering multiple fractal sets using the [*SFML*](https://www.sfml-dev.org/index.php) library
 
 ## Description
 
