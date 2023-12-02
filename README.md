@@ -18,19 +18,35 @@ Clone the repo, open the **Visual Studio** solution, and build the **SFML-Fracta
 ## Usage
 
 Command to use the application:
-| Command                          | Action                       |
-| :---------------------:          | :--------------------------: |
-| Tab                              | Switch between fractals      |
-| W,A,S,D                          | Move the camera              |
-| &uarr; (Arrow up)                | Zoom in                      |
-| &darr; (Arrow down)              | Zoom out                     |
-| Left click & drag (Julia set)    | Choose the complex parameter |
+| Command                       | Action                       |
+| :---------------------------: | :--------------------------: |
+| Tab                           | Switch between fractals      |
+| W,A,S,D                       | Move the camera              |
+| &uarr; (Arrow up)             | Zoom in                      |
+| &darr; (Arrow down)           | Zoom out                     |
+| Left click & drag (Julia set) | Choose the complex parameter |
+
+## Coloring
+
+Formula used for coloring the fractal: `sin(freq * index + phase)` taken by [this post](https://www.paridebroggi.com/blogpost/2015/05/06/fractal-continuous-coloring/)
+
+**Change fractal color**
+
+| Key                        | Action                                |
+| :------------------------: | :-----------------------------------: |
+| R + F + (&uarr; or &darr;) | change `freq` of the *RED* channel    |
+| R + P + (&uarr; or &darr;) | change `phase` of the *RED* channel   |
+| G + F + (&uarr; or &darr;) | change `freq` of the *GREEN* channel  |
+| G + P + (&uarr; or &darr;) | change `phase` of the *GREEN* channel |
+| B + F + (&uarr; or &darr;) | change `freq` of the *BLUE* channel   |
+| B + P + (&uarr; or &darr;) | change `phase` of the *BLUE* channel  |
 
 ## TO-DO
+
 - [ ] Build system for other platforms
-- [ ] Enhance the fractal colors
 
 ## Credits
+
 - [SFML](https://github.com/SFML/SFML)
 - [imgui](https://github.com/ocornut/imgui)
 - [imgui-sfml](https://github.com/SFML/imgui-sfml)
