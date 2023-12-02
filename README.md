@@ -15,7 +15,7 @@ The implementation uses fragment shaders, one for each set.
 
 ## Build
 
-Clone the repo, open the **Visual Studio** solution, and build the **SFML-Fractal** project. 
+Clone the repo, open the ***Visual Studio*** solution, and build the ***SFML-Fractal*** project. 
 
 ## Usage
 
