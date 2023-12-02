@@ -11,7 +11,7 @@ In this application there are two types of fractal:
 * [Newton (Nova)](https://en.wikipedia.org/wiki/Newton_fractal)
 * [Burning Ship](https://it.wikipedia.org/wiki/Burning_ship)
 
-The implementatin uses fragment shaders, one for each set.
+The implementation uses fragment shaders, one for each set.
 
 ## Build
 
