@@ -31,6 +31,10 @@ uniform vec2 u_WinSize;
 uniform vec2 u_CameraPosition;
 uniform float u_Scale;
 
+uniform vec2 u_RedFrequencyPhase;
+uniform vec2 u_GreenFrequencyPhase;
+uniform vec2 u_BlueFrequencyPhase;
+
 void main()
 {
 	float ratio = u_WinSize.x / u_WinSize.y;
@@ -66,9 +70,9 @@ void main()
 	if (n < MAX_STEPS)
 	{
 		float cindex = float(n) + 1.f - log2(log2(abs2(z)) / 2.f);
-		color.x = sin(0.016.f * cindex + 4.f) * 0.5f + 0.5f;
-		color.y = sin(0.016.f * cindex + 2.f) * 0.5f + 0.5f;
-		color.z = sin(0.016.f * cindex + 1.f) * 0.5f + 0.5f;
+		color.x = sin(u_RedFrequencyPhase.x * cindex + u_RedFrequencyPhase.y) * 0.5f + 0.5f;
+		color.y = sin(u_GreenFrequencyPhase.x * cindex + u_GreenFrequencyPhase.y) * 0.5f + 0.5f;
+		color.z = sin(u_BlueFrequencyPhase.x * cindex + u_BlueFrequencyPhase.y) * 0.5f + 0.5f;
 	}
 
 	gl_FragColor = vec4(color, 1.0);

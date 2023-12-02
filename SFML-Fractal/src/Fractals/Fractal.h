@@ -11,19 +11,23 @@ public:
 	Fractal();
 	virtual ~Fractal();
 
-	virtual void Init(sf::Vector2u windowSize) = 0;
-	virtual void UpdateAndRender(float dt, sf::RenderTarget& target) = 0;
+	virtual void Init(sf::Vector2u windowSize);
+	virtual void UpdateAndRender(float dt, sf::RenderTarget& target);
 
 	void HandleZoom(float dt);
 	void HandleCamera(float dt);
+	void HandleColor(float dt);
 
 protected:
 
 	sf::RectangleShape m_Rect;
-	sf::Vector2u m_WindowSize;
 	sf::Shader m_FractalShader;
 	sf::RenderStates m_States;
 
+	sf::Vector2f m_RedFrequencyPhase;
+	sf::Vector2f m_GreenFrequencyPhase;
+	sf::Vector2f m_BlueFrequencyPhase;
+	sf::Vector2u m_WindowSize;
 	sf::Vector2f m_CameraPos;
 	float m_Scale;
 

@@ -29,3 +29,8 @@ Command to use the application:
 ## TO-DO
 - [ ] Build system for other platforms
 - [ ] Enhance the fractal colors
+
+## Credits
+- [SFML](https://github.com/SFML/SFML)
+- [imgui](https://github.com/ocornut/imgui)
+- [imgui-sfml](https://github.com/SFML/imgui-sfml)

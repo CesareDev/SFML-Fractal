@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\main.cpp">
+    <ClCompile Include="src\Core\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Fractals\Mandelbrot.cpp">
@@ -24,7 +24,7 @@
     <ClCompile Include="src\Fractals\Julia.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\FractalManager.cpp">
+    <ClCompile Include="src\Core\FractalManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Fractals\Fractal.cpp">
@@ -36,6 +36,9 @@
     <ClCompile Include="src\Fractals\BurningShip.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Core\Application.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Fractals\Mandelbrot.h">
@@ -44,7 +47,7 @@
     <ClInclude Include="src\Fractals\Julia.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\FractalManager.h">
+    <ClInclude Include="src\Core\FractalManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Fractals\Fractal.h">
@@ -54,6 +57,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Fractals\BurningShip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Application.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
