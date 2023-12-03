@@ -141,6 +141,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Core\ResourceManager.cpp" />
     <ClCompile Include="src\Core\Application.cpp" />
     <ClCompile Include="src\Fractals\BurningShip.cpp" />
     <ClCompile Include="src\Fractals\Nova.cpp" />
@@ -151,6 +152,7 @@
     <ClCompile Include="src\Core\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Core\ResourceManager.h" />
     <ClInclude Include="src\Core\Application.h" />
     <ClInclude Include="src\Fractals\BurningShip.h" />
     <ClInclude Include="src\Fractals\Nova.h" />

@@ -21,7 +21,7 @@ public:
 	FractalManager();
 	~FractalManager();
 
-	void Init(sf::Vector2u windowSize);
+	void Init(const ResourceManager& resourceManager, sf::Vector2u windowSize);
 	void UpdateAndRender(float dt, sf::RenderTarget& target);
 
 private:
@@ -30,13 +30,11 @@ private:
 
 private:
 
+	sf::Vector2u m_WindowSize;
 	std::unique_ptr<Fractal> m_CurrentFractal;
 	FractalType m_CurrentFractalType;
-	sf::Vector2u m_WindowSize;
 
 	bool m_TabPressed = false;
-
-	sf::Font m_Font;
-	sf::Text m_DebugInfo;
+	ResourceManager* m_ResourceManager;
 };
 

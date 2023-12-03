@@ -12,10 +12,10 @@ Julia::~Julia()
 {
 }
 
-void Julia::Init(sf::Vector2u windowSize)
+void Julia::Init(const ResourceManager& resourceManager, sf::Vector2u windowSize)
 {
 	m_FractalShader.loadFromFile("res/shaders/julia.glsl", sf::Shader::Fragment);
-	Fractal::Init(windowSize);
+	Fractal::Init(resourceManager, windowSize);
 }
 
 void Julia::UpdateAndRender(float dt, sf::RenderTarget& target)

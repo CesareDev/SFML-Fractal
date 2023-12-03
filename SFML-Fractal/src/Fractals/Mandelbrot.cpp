@@ -10,10 +10,10 @@ Mandelbrot::~Mandelbrot()
 {
 }
 
-void Mandelbrot::Init(sf::Vector2u windowSize)
+void Mandelbrot::Init(const ResourceManager& resourceManager, sf::Vector2u windowSize)
 {
 	m_FractalShader.loadFromFile("res/shaders/mandelbrot.glsl", sf::Shader::Fragment);
-	Fractal::Init(windowSize);
+	Fractal::Init(resourceManager, windowSize);
 }
 
 void Mandelbrot::UpdateAndRender(float dt, sf::RenderTarget& target)

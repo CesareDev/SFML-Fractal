@@ -9,7 +9,7 @@ Fractal::~Fractal()
 {
 }
 
-void Fractal::Init(sf::Vector2u windowSize)
+void Fractal::Init(const ResourceManager& resourceManager, sf::Vector2u windowSize)
 {
 	m_WindowSize = windowSize;
 	m_Rect.setSize(sf::Vector2f(m_WindowSize));
@@ -30,8 +30,7 @@ void Fractal::Init(sf::Vector2u windowSize)
 	m_FractalShader.setUniform("u_GreenFrequencyPhase", m_GreenFrequencyPhase);
 	m_FractalShader.setUniform("u_BlueFrequencyPhase", m_BlueFrequencyPhase);
 
-	m_Font.loadFromFile("res/font/PixeloidMono-d94EV.ttf");
-	m_DebugInfo.setFont(m_Font);
+	m_DebugInfo.setFont(resourceManager.GetFont());
 	m_DebugInfo.setCharacterSize(15);
 	m_DebugInfo.setPosition(4.f, 4.f);
 	m_DebugInfo.setFillColor(sf::Color::Black);

@@ -4,6 +4,8 @@
 #include <SFML/Graphics/Shader.hpp>
 #include <SFML/Graphics/Text.hpp>
 
+#include "Core/ResourceManager.h"
+
 class Fractal
 {
 public:
@@ -11,7 +13,7 @@ public:
 	Fractal();
 	virtual ~Fractal();
 
-	virtual void Init(sf::Vector2u windowSize);
+	virtual void Init(const ResourceManager& resourceManager, sf::Vector2u windowSize);
 	virtual void UpdateAndRender(float dt, sf::RenderTarget& target);
 
 	void HandleZoom(float dt);
@@ -31,7 +33,6 @@ protected:
 	sf::Vector2f m_CameraPos;
 	float m_Scale;
 
-	sf::Font m_Font;
 	sf::Text m_DebugInfo;
 };
 

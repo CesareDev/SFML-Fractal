@@ -2,6 +2,7 @@
 #include <SFML/Graphics/RenderTarget.hpp>
 #include <SFML/Graphics/RenderTexture.hpp>
 
+#include "ResourceManager.h"
 #include "FractalManager.h"
 
 class Application
@@ -17,9 +18,9 @@ public:
 private:
 
 	sf::Vector2u m_WindowSize;
+	ResourceManager m_ResourceManager;
 	FractalManager m_FractalManager;
 
-	sf::Font m_Font;
 	sf::Text m_FPS;
 };
 

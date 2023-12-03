@@ -8,10 +8,10 @@ BurningShip::~BurningShip()
 {
 }
 
-void BurningShip::Init(sf::Vector2u windowSize)
+void BurningShip::Init(const ResourceManager& resourceManager, sf::Vector2u windowSize)
 {
 	m_FractalShader.loadFromFile("res/shaders/burningship.glsl", sf::Shader::Fragment);
-	Fractal::Init(windowSize);
+	Fractal::Init(resourceManager, windowSize);
 }
 
 void BurningShip::UpdateAndRender(float dt, sf::RenderTarget& target)

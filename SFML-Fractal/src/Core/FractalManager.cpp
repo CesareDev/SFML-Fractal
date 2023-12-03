@@ -14,12 +14,13 @@ FractalManager::~FractalManager()
 {
 }
 
-void FractalManager::Init(sf::Vector2u windowSize)
+void FractalManager::Init(const ResourceManager& resourceManager, sf::Vector2u windowSize)
 {
 	m_WindowSize = windowSize;
+	m_ResourceManager = const_cast<ResourceManager*>(& resourceManager);
 	m_CurrentFractalType = FractalType::MandelbrotSet;
 	m_CurrentFractal.reset(new Mandelbrot());
-	m_CurrentFractal->Init(m_WindowSize);
+	m_CurrentFractal->Init(*m_ResourceManager, m_WindowSize);
 }
 
 void FractalManager::UpdateAndRender(float dt, sf::RenderTarget& target)
@@ -66,6 +67,6 @@ void FractalManager::ChangeFractal()
 		default:
 			break;
 		}
-		m_CurrentFractal->Init(m_WindowSize);
+		m_CurrentFractal->Init(*m_ResourceManager, m_WindowSize);
 	}
 }

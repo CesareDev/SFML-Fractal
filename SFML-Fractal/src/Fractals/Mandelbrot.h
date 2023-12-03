@@ -9,7 +9,7 @@ public:
 	~Mandelbrot();
 
 	// Inherited via Fractal
-	void Init(sf::Vector2u windowSize) override;
+	void Init(const ResourceManager& resourceManager, sf::Vector2u windowSize) override;
 	void UpdateAndRender(float dt, sf::RenderTarget& target) override;
 };
 

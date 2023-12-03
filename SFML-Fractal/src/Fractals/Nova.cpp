@@ -10,10 +10,10 @@ Nova::~Nova()
 {
 }
 
-void Nova::Init(sf::Vector2u windowSize)
+void Nova::Init(const ResourceManager& resourceManager, sf::Vector2u windowSize)
 {
 	m_FractalShader.loadFromFile("res/shaders/nova.glsl", sf::Shader::Fragment);
-	Fractal::Init(windowSize);
+	Fractal::Init(resourceManager, windowSize);
 }
 
 void Nova::UpdateAndRender(float dt, sf::RenderTarget& target)
