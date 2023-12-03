@@ -19,7 +19,7 @@ Clone the repo, open the ***Visual Studio*** solution, and build the ***SFML-Fra
 
 ## Usage
 
-Command to use the application:
+Commands to use the application: (temporary)
 
 | Command                       | Action                       |
 | :---------------------------: | :--------------------------: |
@@ -33,7 +33,7 @@ Command to use the application:
 
 Formula used for coloring the fractal: `sin(freq * index + phase)` taken by [this post](https://www.paridebroggi.com/blogpost/2015/05/06/fractal-continuous-coloring/)
 
-**Change fractal color**
+**Change fractal color** (temporary)
 
 | Key                        | Action                                |
 | :------------------------: | :-----------------------------------: |
@@ -49,6 +49,7 @@ Formula used for coloring the fractal: `sin(freq * index + phase)` taken by [thi
 ## TO-DO
 
 - [ ] Build system for other platforms
+- [ ] Improve UI
 
 ## Credits
 
