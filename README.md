@@ -20,6 +20,7 @@ Clone the repo, open the ***Visual Studio*** solution, and build the ***SFML-Fra
 ## Usage
 
 Command to use the application:
+
 | Command                       | Action                       |
 | :---------------------------: | :--------------------------: |
 | Tab                           | Switch between fractals      |
@@ -36,12 +37,14 @@ Formula used for coloring the fractal: `sin(freq * index + phase)` taken by [thi
 
 | Key                        | Action                                |
 | :------------------------: | :-----------------------------------: |
-| R + F + (&uarr; or &darr;) | change `freq` of the *RED* channel    |
-| R + P + (&uarr; or &darr;) | change `phase` of the *RED* channel   |
-| G + F + (&uarr; or &darr;) | change `freq` of the *GREEN* channel  |
-| G + P + (&uarr; or &darr;) | change `phase` of the *GREEN* channel |
-| B + F + (&uarr; or &darr;) | change `freq` of the *BLUE* channel   |
-| B + P + (&uarr; or &darr;) | change `phase` of the *BLUE* channel  |
+| R + F + (&uarr; / &darr;) | change `freq` of the *RED* channel    |
+| R + P + (&uarr; / &darr;) | change `phase` of the *RED* channel   |
+| G + F + (&uarr; / &darr; :warning:) | change `freq` of the *GREEN* channel  |
+| G + P + (&uarr; / &darr;) | change `phase` of the *GREEN* channel |
+| B + F + (&uarr; / &darr;) | change `freq` of the *BLUE* channel   |
+| B + P + (&uarr; / &darr;) | change `phase` of the *BLUE* channel  |
+
+:warning: = ***Doesn't work, currently not fixed***
 
 ## TO-DO
 
