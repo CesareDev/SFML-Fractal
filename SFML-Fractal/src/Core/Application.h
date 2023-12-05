@@ -18,9 +18,9 @@ public:
 private:
 
 	sf::Vector2u m_WindowSize;
+	sf::Text m_FPS;
+
 	ResourceManager m_ResourceManager;
 	FractalManager m_FractalManager;
-
-	sf::Text m_FPS;
 };
 

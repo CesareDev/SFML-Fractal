@@ -12,13 +12,36 @@ Fractal::~Fractal()
 void Fractal::Init(const ResourceManager& resourceManager, sf::Vector2u windowSize)
 {
 	m_WindowSize = windowSize;
-	m_Rect.setSize(sf::Vector2f(m_WindowSize));
+	m_Rect.setSize(sf::Vector2f(m_WindowSize.x, m_WindowSize.y));
 	m_States.shader = &m_FractalShader;
 	
 	m_Scale = 1.f;
 	m_CameraPos = { 0.f, 0.f };
 
-	m_FractalShader.setUniform("u_WinSize", sf::Glsl::Vec2(m_WindowSize));
+	sf::Vector2f offset =
+	{
+		m_Rect.getPosition().x,
+		m_WindowSize.y - m_Rect.getPosition().y - m_Rect.getSize().y
+	};
+
+	//									Ww
+	//   +----------------------------------------------------------------+
+	//   |          gl_FragCoord.x                                        |
+	//   |<---------------------------------->|							  |
+	//   |						  (Xr,Yr) 	  |							  |
+	//   |						     |        |      					  |
+	//   |							 +->+------------------+			  |
+	//   |								|	  			   |		      | Hw
+	//   |		|---------------------->|-----*		       | Hr			  |
+	//   |		|						|	  |			   |			  |
+	//   |		|						+------------------+			  |
+	//   |		| gl_FragCoord.y			  		|					  |
+	//   |		|									| Hw - Yr - Hr		  |
+	//   |		|									|					  |
+	//   +----------------------------------------------------------------+
+
+	m_FractalShader.setUniform("u_ViewportSize", m_Rect.getSize());
+	m_FractalShader.setUniform("u_ViewportOffset", offset);
 	m_FractalShader.setUniform("u_Scale", m_Scale);
 	m_FractalShader.setUniform("u_CameraPosition", m_CameraPos);
 
@@ -32,7 +55,7 @@ void Fractal::Init(const ResourceManager& resourceManager, sf::Vector2u windowSi
 
 	m_DebugInfo.setFont(resourceManager.GetFont());
 	m_DebugInfo.setCharacterSize(15);
-	m_DebugInfo.setPosition(4.f, 4.f);
+	m_DebugInfo.setPosition(m_Rect.getPosition().x + 4.f, m_Rect.getPosition().y + 4.f);
 	m_DebugInfo.setFillColor(sf::Color::Black);
 }
 

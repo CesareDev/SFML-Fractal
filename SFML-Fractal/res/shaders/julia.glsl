@@ -27,7 +27,8 @@ float abs2(Complex a)
 	return a.r * a.r + a.i * a.i;
 }
 
-uniform vec2 u_WinSize;
+uniform vec2 u_ViewportSize;
+uniform vec2 u_ViewportOffset;
 uniform vec2 u_CameraPosition;
 uniform float u_Scale;
 uniform vec2 u_MousePosition;
@@ -39,18 +40,18 @@ uniform vec2 u_BlueFrequencyPhase;
 
 void main()
 {
-	float ratio = u_WinSize.x / u_WinSize.y;
+	float ratio = u_ViewportSize.x / u_ViewportSize.y;
 
 	float imgStartParam = -1.f;
 	float imgEndParam = 1.f;
 	float realStartParam = imgStartParam * ratio;
 	float realEndParam = imgEndParam * ratio;
-	vec2 mpos = vec2(u_MousePosition.x, u_WinSize.y - u_MousePosition.y);
+	vec2 mpos = vec2(u_MousePosition.x, u_ViewportSize.y - u_MousePosition.y);
 
 	Complex c = Complex
 	(
-		realStartParam + (mpos.x / u_WinSize.x) * (realEndParam - realStartParam),
-		imgStartParam + (mpos.y / u_WinSize.y) * (imgEndParam - imgStartParam)
+		realStartParam + ((mpos.x - u_ViewportOffset.x) / u_ViewportSize.x) * (realEndParam - realStartParam),
+		imgStartParam + ((mpos.y - u_ViewportOffset.y) / u_ViewportSize.y) * (imgEndParam - imgStartParam)
 	);
 
 	float imgStart = (-1.f / u_Scale);
@@ -65,8 +66,8 @@ void main()
 
 	Complex z = Complex
 	(
-		realStart + (gl_FragCoord.x / u_WinSize.x) * (realEnd - realStart),
-		imgStart + (gl_FragCoord.y / u_WinSize.y) * (imgEnd - imgStart)
+		realStart + ((gl_FragCoord.x - u_ViewportOffset.x) / u_ViewportSize.x) * (realEnd - realStart),
+		imgStart + ((gl_FragCoord.y - u_ViewportOffset.y) / u_ViewportSize.y) * (imgEnd - imgStart)
 	);
 
 	int n;
