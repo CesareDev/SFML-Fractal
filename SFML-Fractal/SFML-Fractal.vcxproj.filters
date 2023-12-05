@@ -1,87 +1,66 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="Core">
+      <UniqueIdentifier>{2EB4837C-1AEB-840D-C3D7-6A10AFED000F}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="Fractals">
+      <UniqueIdentifier>{55B3A746-4180-0252-6A99-F0F956C537E0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Core\main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Fractals\Mandelbrot.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Fractals\Julia.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Core\FractalManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Fractals\Fractal.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Fractals\Nova.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Fractals\BurningShip.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Core\Application.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Core\ResourceManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="src\Fractals\Mandelbrot.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Fractals\Julia.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="src\Core\Application.h">
+      <Filter>Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Core\FractalManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Fractals\Fractal.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Fractals\Nova.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Fractals\BurningShip.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Core\Application.h">
-      <Filter>Header Files</Filter>
+      <Filter>Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Core\ResourceManager.h">
-      <Filter>Header Files</Filter>
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Fractals\BurningShip.h">
+      <Filter>Fractals</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Fractals\Fractal.h">
+      <Filter>Fractals</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Fractals\Julia.h">
+      <Filter>Fractals</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Fractals\Mandelbrot.h">
+      <Filter>Fractals</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Fractals\Nova.h">
+      <Filter>Fractals</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="res\font\info.txt" />
-    <Text Include="res\font\misc\License.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Font Include="res\font\PixeloidMono-d94EV.ttf" />
-    <Font Include="res\font\PixeloidSansBold-PKnYd.ttf" />
-    <Font Include="res\font\PixeloidSans-mLxMm.ttf" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="res\shaders\mandelbrot.glsl" />
-    <None Include="res\shaders\julia.glsl" />
-    <None Include="res\shaders\nova.glsl" />
-    <None Include="res\shaders\burningship.glsl" />
+    <ClCompile Include="src\Core\Application.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\FractalManager.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\ResourceManager.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\main.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Fractals\BurningShip.cpp">
+      <Filter>Fractals</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Fractals\Fractal.cpp">
+      <Filter>Fractals</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Fractals\Julia.cpp">
+      <Filter>Fractals</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Fractals\Mandelbrot.cpp">
+      <Filter>Fractals</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Fractals\Nova.cpp">
+      <Filter>Fractals</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

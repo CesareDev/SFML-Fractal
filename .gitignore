@@ -34,10 +34,10 @@ bld/
 [Ll]ogs/
 
 # Add by me
-bin-int/
-Scripts/
-premake5.exe
-premake5.lua
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
