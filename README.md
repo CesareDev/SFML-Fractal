@@ -15,7 +15,13 @@ The implementation uses fragment shaders, one for each set.
 
 ## Build
 
-Clone the repo, open the ***Visual Studio*** solution, and build the ***SFML-Fractal*** project. 
+***Windows***
+
+- Clone the repo, go to Scritps folder and run `winbuild.bat` file.
+- Return to the previous folder and open the `SFML-Fractal.sln` file.
+- Build the solution and run the application
+
+***...Other platform coming soon...***
 
 ## Usage
 
@@ -54,3 +60,4 @@ Formula used for coloring the fractal: `sin(freq * index + phase)` taken by [thi
 ## Credits
 
 - [SFML](https://github.com/SFML/SFML)
+- [premake5](https://github.com/premake/premake-core)
