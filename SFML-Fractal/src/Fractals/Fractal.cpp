@@ -45,18 +45,10 @@ void Fractal::Init(const ResourceManager& resourceManager, sf::Vector2u windowSi
 	m_FractalShader.setUniform("u_Scale", m_Scale);
 	m_FractalShader.setUniform("u_CameraPosition", m_CameraPos);
 
-	m_RedFrequencyPhase = { 0.1f, 1.f };
-	m_GreenFrequencyPhase = { 0.1f, 2.f };
-	m_BlueFrequencyPhase = { 0.1f, 3.f };
-
-	m_FractalShader.setUniform("u_RedFrequencyPhase", m_RedFrequencyPhase);
-	m_FractalShader.setUniform("u_GreenFrequencyPhase", m_GreenFrequencyPhase);
-	m_FractalShader.setUniform("u_BlueFrequencyPhase", m_BlueFrequencyPhase);
-
 	m_DebugInfo.setFont(resourceManager.GetFont());
 	m_DebugInfo.setCharacterSize(15);
 	m_DebugInfo.setPosition(m_Rect.getPosition().x + 4.f, m_Rect.getPosition().y + 4.f);
-	m_DebugInfo.setFillColor(sf::Color::Black);
+	m_DebugInfo.setFillColor(sf::Color::Red);
 }
 
 void Fractal::UpdateAndRender(float dt, sf::RenderTarget& target)
@@ -78,11 +70,7 @@ void Fractal::UpdateAndRender(float dt, sf::RenderTarget& target)
 	info += "Complex Range:\nReal = [" + std::to_string(realStart)
 		+ ", " + std::to_string(realEnd) + "]\n" +
 		"Img = [" + std::to_string(imgStart)
-		+ ", " + std::to_string(imgEnd) + "]\n\n" +
-		"Coloring formula : channel = sin(f * steps + p)\n" +
-		"Red f = " + std::to_string(m_RedFrequencyPhase.x) + ", p = " + std::to_string(m_RedFrequencyPhase.y) + "\n" +
-		"Green f = " + std::to_string(m_GreenFrequencyPhase.x) + ", p = " + std::to_string(m_GreenFrequencyPhase.y) + "\n" +
-		"Blue f = " + std::to_string(m_BlueFrequencyPhase.x) + ", p = " + std::to_string(m_BlueFrequencyPhase.y) + "\n\n";
+		+ ", " + std::to_string(imgEnd) + "]\n";
 
 	m_DebugInfo.setString(info);
 
@@ -91,22 +79,15 @@ void Fractal::UpdateAndRender(float dt, sf::RenderTarget& target)
 
 void Fractal::HandleZoom(float dt)
 {
-	bool r = sf::Keyboard::isKeyPressed(sf::Keyboard::R);
-	bool g = sf::Keyboard::isKeyPressed(sf::Keyboard::G);
-	bool b = sf::Keyboard::isKeyPressed(sf::Keyboard::B);
-
-	if (!r && !g && !b)
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 	{
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-		{
-			m_Scale *= 1.1f;
-			m_FractalShader.setUniform("u_Scale", m_Scale);
-		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-		{
-			m_Scale /= 1.1f;
-			m_FractalShader.setUniform("u_Scale", m_Scale);
-		}
+		m_Scale *= 1.1f;
+		m_FractalShader.setUniform("u_Scale", m_Scale);
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+	{
+		m_Scale /= 1.1f;
+		m_FractalShader.setUniform("u_Scale", m_Scale);
 	}
 }
 
@@ -133,105 +114,5 @@ void Fractal::HandleCamera(float dt)
 	{
 		m_CameraPos.x += offset * dt;
 		m_FractalShader.setUniform("u_CameraPosition", m_CameraPos);
-	}
-}
-
-void Fractal::HandleColor(float dt)
-{	
-	//RED CHANNEL
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::R))
-	{
-		//FREQUENCY
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::F))
-		{
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-			{
-				m_RedFrequencyPhase.x += 0.05f * dt;
-				m_FractalShader.setUniform("u_RedFrequencyPhase", m_RedFrequencyPhase);
-			}
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-			{
-				m_RedFrequencyPhase.x -= 0.05f * dt;
-				m_FractalShader.setUniform("u_RedFrequencyPhase", m_RedFrequencyPhase);
-			}
-		}
-		//PHASE
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::P))
-		{
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-			{
-				m_RedFrequencyPhase.y += 0.5f * dt;
-				m_FractalShader.setUniform("u_RedFrequencyPhase", m_RedFrequencyPhase);
-			}
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-			{
-				m_RedFrequencyPhase.y -= 0.5f * dt;
-				m_FractalShader.setUniform("u_RedFrequencyPhase", m_RedFrequencyPhase);
-			}
-		}
-	}
-	//GREEN CHANNEL
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::G))
-	{
-		//FREQUENCY
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::F))
-		{
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-			{
-				m_GreenFrequencyPhase.x += 0.05f * dt;
-				m_FractalShader.setUniform("u_GreenFrequencyPhase", m_GreenFrequencyPhase);
-			}
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-			{
-				m_GreenFrequencyPhase.x -= 0.05f * dt;
-				m_FractalShader.setUniform("u_GreenFrequencyPhase", m_GreenFrequencyPhase);
-			}
-		}
-		//PHASE
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::P))
-		{
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-			{
-				m_GreenFrequencyPhase.y += 0.5f * dt;
-				m_FractalShader.setUniform("u_GreenFrequencyPhase", m_GreenFrequencyPhase);
-			}
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-			{
-				m_GreenFrequencyPhase.y -= 0.5f * dt;
-				m_FractalShader.setUniform("u_GreenFrequencyPhase", m_GreenFrequencyPhase);
-			}
-		}
-	}
-	//BLUE CHANNEL
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::B))
-	{
-		//FREQUENCY
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::F))
-		{
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-			{
-				m_BlueFrequencyPhase.x += 0.05f * dt;
-				m_FractalShader.setUniform("u_BlueFrequencyPhase", m_BlueFrequencyPhase);
-			}
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-			{
-				m_BlueFrequencyPhase.x -= 0.05f * dt;
-				m_FractalShader.setUniform("u_BlueFrequencyPhase", m_BlueFrequencyPhase);
-			}
-		}
-		//PHASE
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::P))
-		{
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-			{
-				m_BlueFrequencyPhase.y += 0.5f * dt;
-				m_FractalShader.setUniform("u_BlueFrequencyPhase", m_BlueFrequencyPhase);
-			}
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-			{
-				m_BlueFrequencyPhase.y -= 0.5f * dt;
-				m_FractalShader.setUniform("u_BlueFrequencyPhase", m_BlueFrequencyPhase);
-			}
-		}
 	}
 }

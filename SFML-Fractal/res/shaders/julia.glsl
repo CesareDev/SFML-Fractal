@@ -2,29 +2,13 @@
 
 #define MAX_STEPS 100
 
-struct Complex 
+vec2 mul(vec2 a, vec2 b)
 {
-	float r;
-	float i;
-};
-
-Complex add(Complex a, Complex b)
-{
-	return Complex(a.r + b.r, a.i + b.i);
-}
-
-Complex mul(Complex a, Complex b)
-{
-	return Complex
+	return vec2
 	(
-		a.r * b.r - a.i * b.i,
-		a.r * b.i + a.i * b.r
+		a.x * b.x - a.y * b.y,
+		a.x * b.y + a.y * b.x
 	);
-}
-
-float abs2(Complex a)
-{
-	return a.r * a.r + a.i * a.i;
 }
 
 uniform vec2 u_ViewportSize;
@@ -32,11 +16,6 @@ uniform vec2 u_ViewportOffset;
 uniform vec2 u_CameraPosition;
 uniform float u_Scale;
 uniform vec2 u_MousePosition;
-
-uniform vec2 u_RedFrequencyPhase;
-uniform vec2 u_GreenFrequencyPhase;
-uniform vec2 u_BlueFrequencyPhase;
-
 
 void main()
 {
@@ -48,12 +27,6 @@ void main()
 	float realEndParam = imgEndParam * ratio;
 	vec2 mpos = vec2(u_MousePosition.x, u_ViewportSize.y - u_MousePosition.y);
 
-	Complex c = Complex
-	(
-		realStartParam + ((mpos.x - u_ViewportOffset.x) / u_ViewportSize.x) * (realEndParam - realStartParam),
-		imgStartParam + ((mpos.y - u_ViewportOffset.y) / u_ViewportSize.y) * (imgEndParam - imgStartParam)
-	);
-
 	float imgStart = (-1.f / u_Scale);
 	float imgEnd = (1.f / u_Scale);
 	float realStart = (imgStart * ratio);
@@ -64,28 +37,27 @@ void main()
 	realStart += u_CameraPosition.x;
 	realEnd += u_CameraPosition.x;
 
-	Complex z = Complex
+	vec2 c = vec2
+	(
+		realStartParam + ((mpos.x - u_ViewportOffset.x) / u_ViewportSize.x) * (realEndParam - realStartParam),
+		imgStartParam + ((mpos.y - u_ViewportOffset.y) / u_ViewportSize.y) * (imgEndParam - imgStartParam)
+	);
+
+	vec2 z = vec2
 	(
 		realStart + ((gl_FragCoord.x - u_ViewportOffset.x) / u_ViewportSize.x) * (realEnd - realStart),
 		imgStart + ((gl_FragCoord.y - u_ViewportOffset.y) / u_ViewportSize.y) * (imgEnd - imgStart)
 	);
 
 	int n;
-	while (abs2(z) <= 4.f && n < MAX_STEPS)
+	while (dot(z, z) <= 4.f && n < MAX_STEPS)
 	{
-		z = add(mul(z, z), c);
+		z = mul(z, z) + c;
 		n++;
 	}
 
-	vec3 color;
-
-	if (n < MAX_STEPS)
-	{
-		float cindex = float(n) + 1.f - log2(log2(abs2(z)) / 2.f);
-		color.x = sin(u_RedFrequencyPhase.x * cindex + u_RedFrequencyPhase.y) * 0.5f + 0.5f;
-		color.y = sin(u_GreenFrequencyPhase.x * cindex + u_GreenFrequencyPhase.y) * 0.5f + 0.5f;
-		color.z = sin(u_BlueFrequencyPhase.x * cindex + u_BlueFrequencyPhase.y) * 0.5f + 0.5f;
-	}
+	float factor = (float(n) - log2(max(1.f, log2(length(z))))) / MAX_STEPS;
+	vec3 color = vec3(factor, factor, factor);
 
 	gl_FragColor = vec4(color, 1.0);
 }

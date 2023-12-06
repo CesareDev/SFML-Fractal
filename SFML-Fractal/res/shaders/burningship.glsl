@@ -2,39 +2,19 @@
 
 #define MAX_STEPS 100
 
-struct Complex 
+vec2 mul(vec2 a, vec2 b)
 {
-	float r;
-	float i;
-};
-
-Complex add(Complex a, Complex b)
-{
-	return Complex(a.r + b.r, a.i + b.i);
-}
-
-Complex mul(Complex a, Complex b)
-{
-	return Complex
+	return vec2
 	(
-		a.r * b.r - a.i * b.i,
-		a.r * b.i + a.i * b.r
+		a.x * b.x - a.y * b.y,
+		a.x * b.y + a.y * b.x
 	);
-}
-
-float abs2(Complex a)
-{
-	return a.r * a.r + a.i * a.i;
 }
 
 uniform vec2 u_ViewportSize;
 uniform vec2 u_ViewportOffset;
 uniform vec2 u_CameraPosition;
 uniform float u_Scale;
-
-uniform vec2 u_RedFrequencyPhase;
-uniform vec2 u_GreenFrequencyPhase;
-uniform vec2 u_BlueFrequencyPhase;
 
 void main()
 {
@@ -49,32 +29,25 @@ void main()
 	realStart += u_CameraPosition.x;
 	realEnd += u_CameraPosition.x;
 
-	Complex c = Complex
+	vec2 c = vec2
 	(
 		realStart + ((gl_FragCoord.x - u_ViewportOffset.x) / u_ViewportSize.x) * (realEnd - realStart),
 		imgStart + ((gl_FragCoord.y - u_ViewportOffset.y) / u_ViewportSize.y) * (imgEnd - imgStart)
 	);
 
-	Complex z;
+	vec2 z;
 	float k = 2.f / 3.f;
 
 	int n;
-	while (abs2(z) <= 4.f && n < MAX_STEPS)
+	while (dot(z, z) <= 4.f && n < MAX_STEPS)
 	{
-		Complex k = Complex(abs(z.r), abs(z.i)); 
-		z = add(mul(k, k), c);
+		vec2 k = abs(z); //abs of real & img part
+		z = mul(k, k) + c;
 		n++;
 	}
 
-	vec3 color;
-
-	if (n < MAX_STEPS)
-	{
-		float cindex = float(n) + 1.f - log2(log2(abs2(z)) / 2.f);
-		color.x = sin(u_RedFrequencyPhase.x * cindex + u_RedFrequencyPhase.y) * 0.5f + 0.5f;
-		color.y = sin(u_GreenFrequencyPhase.x * cindex + u_GreenFrequencyPhase.y) * 0.5f + 0.5f;
-		color.z = sin(u_BlueFrequencyPhase.x * cindex + u_BlueFrequencyPhase.y) * 0.5f + 0.5f;
-	}
+	float factor = (float(n) - log2(max(1.f, log2(length(z))))) / MAX_STEPS;
+	vec3 color = vec3(factor, factor, factor);
 
 	gl_FragColor = vec4(color, 1.0);
 }

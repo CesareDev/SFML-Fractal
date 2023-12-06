@@ -46,27 +46,11 @@ Commands to use the application: (temporary)
 | &darr; (Arrow down)           | Zoom out                     |
 | Left click & drag (Julia set) | Choose the complex parameter |
 
-## Coloring
-
-Formula used for coloring the fractal: `sin(freq * index + phase)` taken by [this post](https://www.paridebroggi.com/blogpost/2015/05/06/fractal-continuous-coloring/)
-
-**Change fractal color** (temporary)
-
-| Key                        | Action                                |
-| :------------------------: | :-----------------------------------: |
-| R + F + (&uarr; / &darr;) | change `freq` of the *RED* channel    |
-| R + P + (&uarr; / &darr;) | change `phase` of the *RED* channel   |
-| G + F + (&uarr; / &darr; :warning:) | change `freq` of the *GREEN* channel  |
-| G + P + (&uarr; / &darr;) | change `phase` of the *GREEN* channel |
-| B + F + (&uarr; / &darr;) | change `freq` of the *BLUE* channel   |
-| B + P + (&uarr; / &darr;) | change `phase` of the *BLUE* channel  |
-
-:warning: = ***Doesn't work, currently not fixed***
-
 ## TO-DO
 
 - [ ] Build system for other platforms
 - [ ] Improve UI
+- [ ] Enhance coloring
 
 ## Credits
 

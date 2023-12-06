@@ -18,7 +18,6 @@ public:
 
 	void HandleZoom(float dt);
 	void HandleCamera(float dt);
-	void HandleColor(float dt);
 
 protected:
 
@@ -26,9 +25,6 @@ protected:
 	sf::Shader m_FractalShader;
 	sf::RenderStates m_States;
 
-	sf::Vector2f m_RedFrequencyPhase;
-	sf::Vector2f m_GreenFrequencyPhase;
-	sf::Vector2f m_BlueFrequencyPhase;
 	sf::Vector2u m_WindowSize;
 	sf::Vector2f m_CameraPos;
 	float m_Scale;

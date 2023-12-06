@@ -17,7 +17,7 @@ void Application::Init(sf::Vector2u windowSize)
 	m_FPS.setFont(m_ResourceManager.GetFont());
 	m_FPS.setCharacterSize(15);
 	m_FPS.setPosition(4.f, 4.f);
-	m_FPS.setFillColor(sf::Color::Black);
+	m_FPS.setFillColor(sf::Color::Red);
 }
 
 void Application::UpdateAndRender(float dt, sf::RenderTarget& target)

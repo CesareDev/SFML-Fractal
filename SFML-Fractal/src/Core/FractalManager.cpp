@@ -27,7 +27,6 @@ void FractalManager::UpdateAndRender(float dt, sf::RenderTarget& target)
 {
 	ChangeFractal();
 	
-	m_CurrentFractal->HandleColor(dt);
 	m_CurrentFractal->HandleCamera(dt);
 	m_CurrentFractal->HandleZoom(dt);
 	m_CurrentFractal->UpdateAndRender(dt, target);

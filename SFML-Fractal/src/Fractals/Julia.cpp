@@ -57,7 +57,6 @@ void Julia::UpdateAndRender(float dt, sf::RenderTarget& target)
 
 	std::string info = "Julia" + m_DebugInfo.getString() + "Complex Parameter: C = " + std::to_string(c.x) + (neg ? " - i" : " + i") + std::to_string(c.y);
 	m_DebugInfo.setString(info);
-	m_DebugInfo.setFillColor(sf::Color::White);
 
 	target.draw(m_DebugInfo);
 }
