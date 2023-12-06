@@ -10,6 +10,7 @@ In this application there are two types of fractal:
 * [Julia](https://en.wikipedia.org/wiki/Julia_set)
 * [Newton (Nova)](https://en.wikipedia.org/wiki/Newton_fractal)
 * [Burning Ship](https://it.wikipedia.org/wiki/Burning_ship)
+* [Magnet](https://paulbourke.net/fractals/magnet/)
 
 The implementation uses fragment shaders, one for each set.
 
