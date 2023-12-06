@@ -32,7 +32,7 @@ The implementation uses fragment shaders, one for each set.
 - Return to the `SFML-Fractal` folder and open the `SFML-Fractal.sln` file.
 - Build the solution and run the application
 
-***...Other platform coming soon...***
+***...Other platforms coming soon...***
 
 ## Usage
 
