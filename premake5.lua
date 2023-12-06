@@ -3,7 +3,6 @@ workspace "SFML-Fractal"
     architecture "x64" 
 
 project "SFML-Fractal"
-    defines { "SFML_STATIC" }
     location("SFML-Fractal")
     kind "ConsoleApp"
     language "C++"
@@ -11,8 +10,10 @@ project "SFML-Fractal"
     targetdir "bin/%{cfg.buildcfg}"
     objdir "obj/%{cfg.buildcfg}"
     
-    files { "**.h", "**.cpp" }
-    
+    files { "**.h", "**.cpp", "**.glsl" }
+
+    defines { "SFML_STATIC" }
+
     includedirs { "SFML-Fractal/src" }
     includedirs { "Dependencies/include" }
     libdirs { "Dependencies/lib" }
