@@ -5,6 +5,7 @@
 #include "Fractals/Julia.h"
 #include "Fractals/Nova.h"
 #include "Fractals/BurningShip.h"
+#include "Fractals/Magnet.h"
 
 FractalManager::FractalManager()
 {
@@ -61,6 +62,10 @@ void FractalManager::ChangeFractal()
 			break;
 		case FractalType::BurningShip:
 			m_CurrentFractal.reset(new BurningShip());
+			break;
+		case FractalType::Magnet:
+			m_CurrentFractal.reset(new Magnet());
+			break;
 		case FractalType::Count:
 			break;
 		default:

@@ -11,6 +11,7 @@ enum class FractalType
 	JuliaSet,
 	Nova,
 	BurningShip,
+	Magnet,
 	Count
 };
 
