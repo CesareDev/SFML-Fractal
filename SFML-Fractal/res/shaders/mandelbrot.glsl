@@ -44,7 +44,5 @@ void main()
 	}
 
 	float factor = (float(n) - log2(max(1.f, log2(length(z))))) / MAX_STEPS;
-	vec3 color = vec3(factor, factor, factor);
-
-	gl_FragColor = vec4(color, 1.0);
+	gl_FragColor = vec4(factor, factor, factor, 1.0);
 }
