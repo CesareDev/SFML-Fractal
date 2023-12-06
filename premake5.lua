@@ -10,7 +10,7 @@ project "SFML-Fractal"
     targetdir "bin/%{cfg.buildcfg}"
     objdir "obj/%{cfg.buildcfg}"
     
-    files { "**.h", "**.cpp", "**.glsl" }
+    files { "**.h", "**.cpp", "**.glsl", "**.ttf" }
 
     defines { "SFML_STATIC" }
 

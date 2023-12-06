@@ -10,7 +10,7 @@ ResourceManager::~ResourceManager()
 
 void ResourceManager::Init()
 {
-	m_Font.loadFromFile("res/font/PixeloidMono-d94EV.ttf");
+	m_Font.loadFromFile("res/font/Pixeloid.ttf");
 }
 
 const sf::Font& ResourceManager::GetFont() const
