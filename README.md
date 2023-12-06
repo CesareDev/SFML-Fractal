@@ -17,8 +17,19 @@ The implementation uses fragment shaders, one for each set.
 
 ***Windows***
 
-- Clone the repo, go to Scritps folder and run `winbuild.bat` file.
-- Return to the previous folder and open the `SFML-Fractal.sln` file.
+- Clone the repo and go to the Scripts folder
+
+    ```console
+    git clone https://github.com/CesareDev/SFML-Fractal.git
+- Go to the `Sritps` folder
+
+    ```console
+    cd SFML-Fractal/Scripts
+- Run the `winbuild.bat` file
+
+    ```console
+    winbuild.bat
+- Return to the `SFML-Fractal` folder and open the `SFML-Fractal.sln` file.
 - Build the solution and run the application
 
 ***...Other platform coming soon...***
