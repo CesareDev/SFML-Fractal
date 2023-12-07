@@ -17,6 +17,14 @@ uniform vec2 u_CameraPosition;
 uniform float u_Scale;
 uniform vec2 u_MousePosition;
 
+vec3 palette[] =
+{
+	vec3(0.098,0.098,0.098),
+	vec3(0.459,0.055,0.129),
+	vec3(0.89,0.396,0.114),
+	vec3(0.745,0.843,0.329)
+};
+
 void main()
 {
 	float ratio = u_ViewportSize.x / u_ViewportSize.y;
@@ -57,5 +65,17 @@ void main()
 	}
 
 	float factor = (float(n) - log2(max(1.f, log2(length(z))))) / MAX_STEPS;
-	gl_FragColor = vec4(factor, factor, factor, 1.0);
+	
+	factor *= palette.length();
+	int clr1 = int(factor);
+    float t2 = factor - clr1;
+    float t1 = 1 - t2;
+    clr1 = clr1 % palette.length();
+    int clr2 = (clr1 + 1) % palette.length();
+
+	float r = palette[clr1].x * t1 + palette[clr2].x * t2;
+	float g = palette[clr1].y * t1 + palette[clr2].y * t2;
+	float b = palette[clr1].z * t1 + palette[clr2].z * t2;
+
+	gl_FragColor = vec4(r, g, b, 1.0);
 }

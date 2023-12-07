@@ -51,9 +51,10 @@ Commands to use the application: (temporary)
 
 - [ ] Build system for other platforms
 - [ ] Improve UI
-- [ ] Enhance coloring
+- [x] Enhance coloring
 
 ## Credits
 
+- [Coloring Algorithm](http://www.csharphelper.com/howtos/howto_mandelbrot_smooth.html)
 - [SFML](https://github.com/SFML/SFML)
 - [premake5](https://github.com/premake/premake-core)
