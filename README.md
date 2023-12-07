@@ -30,7 +30,7 @@ The implementation uses fragment shaders, one for each set.
 
     ```console
     winbuild.bat
-- Return to the `SFML-Fractal` folder and open the `SFML-Fractal.sln` file.
+- Return to the `SFML-Fractal` folder and open the `SFML-Fractal.sln` file with *Visual Studio (2022)*.
 - Build the solution and run the application
 
 ***...Other platforms coming soon...***

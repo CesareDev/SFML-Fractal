@@ -16,7 +16,8 @@ project "SFML-Fractal"
 
     includedirs { "SFML-Fractal/src" }
     includedirs { "Dependencies/include" }
-    libdirs { "Dependencies/lib" }
+    libdirs { "Dependencies/lib/visualc" }
+    libdirs { "Dependencies/lib/minwg" }
 
     links { "winmm" }
     links { "vorbisenc" }
