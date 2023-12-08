@@ -19,7 +19,8 @@ project "SFML-Fractal"
 
     if _ACTION == "vs2022" then
         libdirs { "Dependencies/lib/vc" }
-    else if _ACTION == "gmake2" then
+    end
+    if _ACTION == "gmake2" then
         libdirs { "Dependencies/lib/minwg" }
     end
 
