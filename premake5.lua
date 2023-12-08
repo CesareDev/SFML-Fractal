@@ -32,7 +32,7 @@ project "SFML-Fractal"
             "sfml-main"
         }
     end
-    
+
     if _ACTION == "gmake2" then
         libdirs { "Dependencies/lib/mingw" }
         links { 
@@ -52,20 +52,20 @@ project "SFML-Fractal"
     filter "configurations:Debug"
         if _ACTION == "vs2022" then
             links { 
+                "sfml-network-s-d", 
+                "sfml-audio-s-d",
                 "sfml-graphics-s-d",
                 "sfml-window-s-d",
-                "sfml-system-s-d", 
-                "sfml-audio-s-d",
-                "sfml-network-s-d" 
+                "sfml-system-s-d"
             }
         end
         if _ACTION == "gmake2" then
             links { 
+                "sfml-network-s-d:static",
+                "sfml-audio-s-d:static",
                 "sfml-graphics-s-d:static",
                 "sfml-window-s-d:static", 
-                "sfml-system-s-d:static", 
-                "sfml-audio-s-d:static", 
-                "sfml-network-s-d:static" 
+                "sfml-system-s-d:static",
             }
         end
         defines { "DEBUG" }
@@ -74,20 +74,20 @@ project "SFML-Fractal"
     filter "configurations:Release"
         if _ACTION == "vs2022" then
             links { 
+                "sfml-network-s",
+                "sfml-audio-s",
                 "sfml-graphics-s", 
                 "sfml-window-s", 
                 "sfml-system-s", 
-                "sfml-audio-s", 
-                "sfml-network-s" 
             }
         end
         if _ACTION == "gmake2" then
             links { 
+                "sfml-network-s:static",
+                "sfml-audio-s:static",
                 "sfml-graphics-s:static", 
                 "sfml-window-s:static", 
                 "sfml-system-s:static", 
-                "sfml-audio-s:static", 
-                "sfml-network-s:static" 
             }
         end
 
