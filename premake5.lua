@@ -19,39 +19,30 @@ project "SFML-Fractal"
 
     if _ACTION == "vs2022" then
         libdirs { "Dependencies/lib/vc" }
+        links { "winmm", "vorbisenc", "vorbisfile", "vorbis", "ogg", "flac", "gdi32", "freetype", "opengl32", "sfml-main" }
     end
     if _ACTION == "gmake2" then
         libdirs { "Dependencies/lib/mingw" }
+        links { "winmm:static", "vorbisenc:static", "vorbisfile:static", "vorbis:static", "ogg:static", "flac:static", "gdi32:static", "freetype:static", "opengl32:static", "sfml-main:static" }
     end
 
-
-    links { "winmm" }
-    links { "vorbisenc" }
-    links { "vorbisfile" }
-    links { "vorbis" }
-    links { "ogg" }
-    links { "flac" }
-    links { "gdi32" }
-    links { "freetype" }
-    links { "opengl32" }
-    links { "sfml-main" }
-
     filter "configurations:Debug"
-        links { "sfml-system-s-d" }
-        links { "sfml-window-s-d" }
-        links { "sfml-graphics-s-d" }
-        links { "sfml-audio-s-d" }
-        links { "sfml-network-s-d" }
-
+        if _ACTION == "vs2022" then
+            links { "sfml-system-s-d", "sfml-window-s-d", "sfml-graphics-s-d", "sfml-audio-s-d","sfml-network-s-d" }
+        end
+        if _ACTION == "gmake2" then
+            links { "sfml-system-s-d:static", "sfml-window-s-d:static", "sfml-graphics-s-d:static", "sfml-audio-s-d:static", "sfml-network-s-d:static" }
+        end
         defines { "DEBUG" }
         symbols "On"
 
     filter "configurations:Release"
-        links { "sfml-system-s" }
-        links { "sfml-window-s" }
-        links { "sfml-graphics-s" }
-        links { "sfml-audio-s" }
-        links { "sfml-network-s" }
+        if _ACTION == "vs2022" then
+            links { "sfml-system-s", "sfml-window-s", "sfml-graphics-s", "sfml-audio-s", "sfml-network-s" }
+        end
+        if _ACTION == "gmake2" then
+            links { "sfml-system-s:static", "sfml-window-s:static", "sfml-graphics-s:static", "sfml-audio-s:static", "sfml-network-s:static" }
+        end
 
         defines { "NDEBUG" }
         optimize "On"
