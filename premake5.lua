@@ -21,7 +21,7 @@ project "SFML-Fractal"
         libdirs { "Dependencies/lib/vc" }
     end
     if _ACTION == "gmake2" then
-        libdirs { "Dependencies/lib/minwg" }
+        libdirs { "Dependencies/lib/mingw" }
     end
 
 
