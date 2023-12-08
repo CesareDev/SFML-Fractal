@@ -16,7 +16,13 @@ project "SFML-Fractal"
 
     includedirs { "SFML-Fractal/src" }
     includedirs { "Dependencies/include" }
-    libdirs { "Dependencies/lib" }
+
+    if _ACTION == "vs2022" then
+        libdirs { "Dependencies/lib/vc" }
+    else if _ACTION == "gmake2" then
+        libdirs { "Dependencies/lib/minwg" }
+    end
+
 
     links { "winmm" }
     links { "vorbisenc" }
