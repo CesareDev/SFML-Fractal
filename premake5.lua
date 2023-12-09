@@ -31,9 +31,7 @@ project "SFML-Fractal"
             "opengl32", 
             "sfml-main"
         }
-    end
-
-    if _ACTION == "gmake2" then
+    elseif _ACTION == "gmake2" then
         libdirs { "Dependencies/lib/mingw" }
         links { 
             "winmm:static", 
@@ -58,8 +56,7 @@ project "SFML-Fractal"
                 "sfml-window-s-d",
                 "sfml-system-s-d"
             }
-        end
-        if _ACTION == "gmake2" then
+        elseif _ACTION == "gmake2" then
             links { 
                 "sfml-network-s-d:static",
                 "sfml-audio-s-d:static",
@@ -80,8 +77,7 @@ project "SFML-Fractal"
                 "sfml-window-s", 
                 "sfml-system-s", 
             }
-        end
-        if _ACTION == "gmake2" then
+        elseif _ACTION == "gmake2" then
             links { 
                 "sfml-network-s:static",
                 "sfml-audio-s:static",
