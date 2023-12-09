@@ -1,4 +1,5 @@
 #include "Magnet.h"
+#include "Core/Global.h"
 
 Magnet::Magnet()
 {
@@ -10,7 +11,7 @@ Magnet::~Magnet()
 
 void Magnet::Init(const ResourceManager& resourceManager, sf::Vector2u windowSize)
 {
-	m_FractalShader.loadFromFile("res/shaders/magnet.glsl", sf::Shader::Fragment);
+	m_FractalShader.loadFromFile(Global::ExePath + "res/shaders/magnet.glsl", sf::Shader::Fragment);
 	Fractal::Init(resourceManager, windowSize);
 }
 

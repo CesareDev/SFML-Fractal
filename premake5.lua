@@ -4,13 +4,14 @@ workspace "SFML-Fractal"
 
 project "SFML-Fractal"
     location("SFML-Fractal")
-    kind "ConsoleApp"
+    kind "WindowedApp"
     language "C++"
 
     targetdir "bin/%{cfg.buildcfg}"
+    debugdir "bin/%{cfg.buildcfg}"
     objdir "obj/%{cfg.buildcfg}"
     
-    files { "**.h", "**.hpp", "**.cpp", "**.glsl", "**.ttf" }
+    files { "**.h", "**.cpp", "**.glsl", "**.ttf" }
 
     defines { "SFML_STATIC" }
 

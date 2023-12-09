@@ -2,7 +2,7 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Window/Mouse.hpp>
 #include <SFML/Window/Keyboard.hpp>
-#include <iostream>
+#include "Core/Global.h"
 
 Julia::Julia()
 {
@@ -14,7 +14,7 @@ Julia::~Julia()
 
 void Julia::Init(const ResourceManager& resourceManager, sf::Vector2u windowSize)
 {
-	m_FractalShader.loadFromFile("res/shaders/julia.glsl", sf::Shader::Fragment);
+	m_FractalShader.loadFromFile(Global::ExePath + "res/shaders/julia.glsl", sf::Shader::Fragment);
 	Fractal::Init(resourceManager, windowSize);
 }
 

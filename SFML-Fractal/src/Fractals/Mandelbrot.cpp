@@ -1,6 +1,7 @@
 #include "Mandelbrot.h"
 #include <SFML/Window/Keyboard.hpp>
 #include <SFML/Window/Mouse.hpp>
+#include "Core/Global.h"
 
 Mandelbrot::Mandelbrot()
 {
@@ -12,7 +13,7 @@ Mandelbrot::~Mandelbrot()
 
 void Mandelbrot::Init(const ResourceManager& resourceManager, sf::Vector2u windowSize)
 {
-	m_FractalShader.loadFromFile("res/shaders/mandelbrot.glsl", sf::Shader::Fragment);
+	m_FractalShader.loadFromFile(Global::ExePath + "res/shaders/mandelbrot.glsl", sf::Shader::Fragment);
 	Fractal::Init(resourceManager, windowSize);
 }
 
