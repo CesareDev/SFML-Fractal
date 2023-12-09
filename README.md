@@ -18,23 +18,43 @@ The implementation uses fragment shaders, one for each set.
 
 ***Windows***
 
-- Clone the repo and go to the Scripts folder
+- Visual C++ 17 (2022) - 64 bit
 
-    ```console
-    git clone https://github.com/CesareDev/SFML-Fractal.git
-- Go to the `Sritps` folder
+    - Clone the repo and go to the Scripts folder
 
-    ```console
-    cd SFML-Fractal/Scripts
-- Run the `winbuild.bat` file
+        ```console
+        git clone https://github.com/CesareDev/SFML-Fractal.git
+    - Go to the `Sritps` folder
 
-    ```console
-    winbuild.bat
-- Return to the `SFML-Fractal` folder and open the `SFML-Fractal.sln` file with *Visual Studio (2022)*.
-- Build the solution and run the application
+        ```console
+        cd SFML-Fractal/Scripts
+    - Run the `build-vc.bat` file
+    - 
+        ```console
+        build-vc.bat
+    - Return to the `SFML-Fractal` folder and open the `SFML-Fractal.sln` file with *Visual Studio (2022)*.
+    - Build the solution and run the application
 
-***...Other platforms coming soon...***
+- GCC 13.1.0 MinGW - 64 bit
 
+    - Clone the repo and go to the Scripts folder
+
+        ```console
+        git clone https://github.com/CesareDev/SFML-Fractal.git
+    - Go to the `Sritps` folder
+
+        ```console
+        cd SFML-Fractal/Scripts
+    - Run the `build-mingw.bat` file
+
+        ```console
+        build-mingw.bat
+    - Return to the `SFML-Fractal` folder and run `make`
+        ```console
+        make config=debug
+        or
+        make config=release
+    - The binaris are in the `bin` folder
 ## Usage
 
 Commands to use the application: (temporary)

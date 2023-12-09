@@ -10,59 +10,52 @@ project "SFML-Fractal"
     targetdir "bin/%{cfg.buildcfg}"
     objdir "obj/%{cfg.buildcfg}"
     
-    files { "**.h", "**.cpp", "**.glsl", "**.ttf" }
+    files { "**.h", "**.hpp", "**.cpp", "**.glsl", "**.ttf" }
 
     defines { "SFML_STATIC" }
 
     includedirs { "SFML-Fractal/src" }
     includedirs { "Dependencies/include" }
 
-    if _ACTION == "vs2022" then
-        libdirs { "Dependencies/lib/vc" }
-        links { 
-            "winmm", 
-            "vorbisenc", 
-            "vorbisfile", 
-            "vorbis", 
-            "ogg", 
-            "flac", 
-            "gdi32", 
-            "freetype", 
-            "opengl32", 
-            "sfml-main"
-        }
-    elseif _ACTION == "gmake2" then
-        libdirs { "Dependencies/lib/mingw" }
-        links { 
-            "winmm:static", 
-            "vorbisenc:static", 
-            "vorbisfile:static", 
-            "vorbis:static", 
-            "ogg:static", 
-            "flac:static", 
-            "gdi32:static", 
-            "freetype:static", 
-            "opengl32:static", 
-            "sfml-main:static" 
-        }
-    end
-
     filter "configurations:Debug"
         if _ACTION == "vs2022" then
+            libdirs { "Dependencies/lib/vc" }
             links { 
-                "sfml-network-s-d", 
-                "sfml-audio-s-d",
+                "sfml-main-d",
                 "sfml-graphics-s-d",
+                "sfml-system-s-d",
                 "sfml-window-s-d",
-                "sfml-system-s-d"
+                "sfml-audio-s-d",
+                "opengl32",
+                "winmm",
+                "gdi32",
+                "openal32",
+                "flac",
+                "vorbisenc",
+                "vorbisfile",
+                "vorbis",
+                "ogg",
+                "freetype"
             }
         elseif _ACTION == "gmake2" then
+            libdirs { "Dependencies/lib/mingw" }
             links { 
+                "sfml-main-d:static",
                 "sfml-network-s-d:static",
                 "sfml-audio-s-d:static",
                 "sfml-graphics-s-d:static",
                 "sfml-window-s-d:static", 
                 "sfml-system-s-d:static",
+                "opengl32:static",
+                "winmm:static", 
+                "gdi32:static", 
+                "openal32:static",
+                "flac:static", 
+                "vorbisenc:static", 
+                "vorbisfile:static", 
+                "vorbis:static", 
+                "ogg:static", 
+                "freetype:static", 
             }
         end
         defines { "DEBUG" }
@@ -70,22 +63,44 @@ project "SFML-Fractal"
 
     filter "configurations:Release"
         if _ACTION == "vs2022" then
+            libdirs { "Dependencies/lib/vc" }
             links { 
-                "sfml-network-s",
+                "sfml-main",
+                "sfml-graphics-s",
+                "sfml-system-s",
+                "sfml-window-s",
                 "sfml-audio-s",
-                "sfml-graphics-s", 
-                "sfml-window-s", 
-                "sfml-system-s", 
+                "opengl32",
+                "winmm",
+                "gdi32",
+                "openal32",
+                "flac",
+                "vorbisenc",
+                "vorbisfile",
+                "vorbis",
+                "ogg",
+                "freetype"
             }
         elseif _ACTION == "gmake2" then
+            libdirs { "Dependencies/lib/mingw" }
             links { 
+                "sfml-main:static",
                 "sfml-network-s:static",
                 "sfml-audio-s:static",
-                "sfml-graphics-s:static", 
+                "sfml-graphics-s:static",
                 "sfml-window-s:static", 
-                "sfml-system-s:static", 
+                "sfml-system-s:static",
+                "opengl32:static",
+                "winmm:static", 
+                "gdi32:static", 
+                "openal32:static",
+                "flac:static", 
+                "vorbisenc:static", 
+                "vorbisfile:static", 
+                "vorbis:static", 
+                "ogg:static", 
+                "freetype:static", 
             }
         end
-
         defines { "NDEBUG" }
         optimize "On"
