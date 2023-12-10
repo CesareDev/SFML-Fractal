@@ -2,6 +2,11 @@
 
 #define MAX_STEPS 100
 
+float random (vec2 st) 
+{
+    return fract(sin(dot(st.xy, vec2(12.9898,78.233))) * 43758.5453123);
+}
+
 vec2 square(vec2 a)
 {
 	return vec2
@@ -52,17 +57,15 @@ void main()
 	}
 
 	float factor = (float(n) - log2(max(1.f, log2(length(z))))) / MAX_STEPS;
-	
+
 	factor *= palette.length();
 	int clr1 = int(factor);
-    float t2 = factor - clr1;
-    float t1 = 1 - t2;
-    clr1 = clr1 % palette.length();
-    int clr2 = (clr1 + 1) % palette.length();
+	float t2 = factor - clr1;
+	float t1 = 1.f - t2;
+	clr1 = clr1 % palette.length();
+	int clr2 = (clr1 + 1) % palette.length();
 
-	float r = palette[clr1].x * t1 + palette[clr2].x * t2;
-	float g = palette[clr1].y * t1 + palette[clr2].y * t2;
-	float b = palette[clr1].z * t1 + palette[clr2].z * t2;
+	vec3 color = palette[clr1] * t1 + palette[clr2] * t2;
 
-	gl_FragColor = vec4(r, g, b, 1.0);
+	gl_FragColor = vec4(color, 1.0);	
 }
